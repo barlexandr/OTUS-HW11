@@ -6,6 +6,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import static ru.otus.utils.Constants.MAX_LENGTH_OF_LONG;
+
 public class ApplicationInputServiceImpl implements ApplicationInputService {
     @Override
     public long readNumericFromConsole() throws IOException {
@@ -15,7 +17,7 @@ public class ApplicationInputServiceImpl implements ApplicationInputService {
         try {
             return Long.parseLong(line);
         } catch (NumberFormatException e) {
-            if (line.length() > 19) {
+            if (line.length() > MAX_LENGTH_OF_LONG) {
                 System.err.println("Maximum possible string length exceeded");
             } else {
                 System.err.println("Enter the number, please.");
