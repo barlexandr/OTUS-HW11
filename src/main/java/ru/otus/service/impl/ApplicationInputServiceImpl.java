@@ -4,23 +4,21 @@ import ru.otus.service.ApplicationInputService;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
-import static ru.otus.utils.Constants.MAX_LENGTH_OF_LONG;
+import static ru.otus.utils.Constants.*;
 
 public class ApplicationInputServiceImpl implements ApplicationInputService {
     @Override
-    public long readNumericFromConsole() throws IOException {
-        var br = new BufferedReader(new InputStreamReader(System.in));
+    public long readNumericFromConsoleByBufferedReader(BufferedReader br) throws IOException {
         var line = br.readLine();
         var i = 0L;
         try {
             return Long.parseLong(line);
         } catch (NumberFormatException e) {
             if (line.length() > MAX_LENGTH_OF_LONG) {
-                System.err.println("Maximum possible string length exceeded");
+                System.err.println(MAXIMUM_POSSIBLE_LENGTH_EXCEEDED_MESSAGE);
             } else {
-                System.err.println("Enter the number, please.");
+                System.err.println(ENTER_THE_NUMBER_MESSAGE);
             }
         }
         return i;

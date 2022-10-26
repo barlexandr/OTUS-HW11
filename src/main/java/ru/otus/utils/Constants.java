@@ -6,4 +6,6 @@ public class Constants {
     }
 
     public static final int MAX_LENGTH_OF_LONG = 19;
+    public static final String ENTER_THE_NUMBER_MESSAGE = "Enter the number, please.";
+    public static final String MAXIMUM_POSSIBLE_LENGTH_EXCEEDED_MESSAGE = "Maximum possible string length exceeded";
 }

@@ -6,7 +6,9 @@ import ru.otus.service.ApplicationInputService;
 import ru.otus.service.ApplicationOutputService;
 import ru.otus.service.ParseService;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class ActionServiceImpl implements ActionService {
 
@@ -17,7 +19,8 @@ public class ActionServiceImpl implements ActionService {
     @Override
     public void actionWithNumeric() throws IOException {
         while (true) {
-            var input = inputService.readNumericFromConsole();
+            var br = new BufferedReader(new InputStreamReader(System.in));
+            var input = inputService.readNumericFromConsoleByBufferedReader(br);
             var result = parseService.currencyNameDeclination(CurrencyEnum.RUB, input);
             outputService.printWords(result);
         }
