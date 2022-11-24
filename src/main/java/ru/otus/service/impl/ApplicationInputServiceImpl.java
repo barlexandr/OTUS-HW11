@@ -11,8 +11,8 @@ public class ApplicationInputServiceImpl implements ApplicationInputService {
     @Override
     public long readNumericFromConsoleByBufferedReader(BufferedReader br) throws IOException {
         var line = br.readLine();
-        var i = 0L;
-        try {
+        var i = -1L;
+        try (br) {
             return Long.parseLong(line);
         } catch (NumberFormatException e) {
             if (line.length() > MAX_LENGTH_OF_LONG) {
