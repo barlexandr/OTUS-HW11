@@ -38,7 +38,7 @@ public class ApplicationInputServiceTest {
         System.setErr(new PrintStream(originalErr));
 
         assertEquals(ENTER_THE_NUMBER_MESSAGE + "\r\n", errContent.toString());
-        assertEquals(0, numberInLong);
+        assertEquals(-1, numberInLong);
     }
 
     @Test
@@ -52,6 +52,6 @@ public class ApplicationInputServiceTest {
         System.setErr(new PrintStream(originalErr));
 
         assertEquals(MAXIMUM_POSSIBLE_LENGTH_EXCEEDED_MESSAGE + "\r\n", errContent.toString());
-        assertEquals(0, numberInLong);
+        assertEquals(-1, numberInLong);
     }
 }
